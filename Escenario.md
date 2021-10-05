@@ -2,13 +2,7 @@
 
 ## Problema a resolver:
  
-1. El sistema debe mantener un control de las personas que asisten a distintas conferencias, de cada persona se conoce sus nombres, apellidos, documento y entidad donde trabaja. De cada entidad se conoce su CUIT, nombre y si es pública o privada.
-
-2. Las conferencias tienen un identificador único (alfanumérico) y una denominación. De cada edición de una conferencia se almacena el lugar de realización y una fecha de inicio y fin.
-
-3. Cuando una persona se registra se debe almacena si va como expositor o como asistente y si va asistir en forma presencial u online.
-
-4. Es importante saber en que entidad trabajan al momento de inscribirse en cada edición de una conferencia porque se quiere llevar un control de asistentes por entidades.
+Masajes
 
 ## Se solicita realizar:
 
