@@ -12,14 +12,36 @@ El sistema debe permitir listar clientes, turnos por cliente y turnos en general
 
 ## Clientes potenciales
 
-Centro de masajes *Bienestar*.
+Centro de masajes *Carelly*.
 
 ## Solución propuesta 
 
 Escriban algunas oraciones que describan cómo la solución de software resolverá el problema descrito anteriormente.
 
 **Requisitos funcionales**: enumeren los requisitos *(funcionales)* que debe tener el software para resolver el problema mencionado anteriormente. Es útil tratar de agrupar los requisitos en los que son esenciales *(debe estar)* y los que no son esenciales *(sería bueno que estén)*.
- 
+
+*(Debe estar)*
+El sistema debe poder registrar un cliente.
+El sistema debe poder visualizar los datos de un cliente.
+El sistema debe poder editar los datos de un cliente.
+El sistema debe poder dar de baja un cliente.
+
+El sistema debe poder registrar un tipo de masaje.
+El sistema debe poder visualizar los datos de un tipo de masaje.
+El sistema debe poder editar los datos de un tipo de masaje.
+El sistema debe poder dar de baja un tipo de masaje.
+
+El sistema debe poder registrar un turno.
+El sistema debe poder visualizar los datos de un turno.
+El sistema debe poder editar los datos de un turno.
+El sistema debe poder dar de baja un turno.
+
+*(Sería bueno que estén)*
+El sistema debe poder listar los turnos asociados a un cliente.
+El sistema debe poder listar los turnos por dia.
+El sistema debe poder informar si un cliente tiene inasistencias.
+El sistema debe poder registrar la inasistencia de un cliente a un turno.
+El sistema debe poder registrar los problemas físicos de los clientes.
 ## Arquitectura de software
 
-¿Será esta una aplicación web / de escritorio / móvil *(todas o algún otro tipo)*? ¿Se ajustaría a la arquitectura de software Cliente-Servidor? 
+Aplicación web - Cliente-Servidor
