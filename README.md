@@ -2,4 +2,4 @@
 
 Un centro de masajes experimenta problemas con la reserva de turnos debido a la falta de organización. 
 
-Se propone implementar el sistema *Carelly* con el objetivo de aumentar la productividad del negocio a través de una correcta y eficaz planificación de reservas, mejorando a la vez la atención que se brinda al cliente.
+Se propone implementar el sistema *Carelly* con el objetivo de aumentar la productividad del negocio a través de una correcta y eficaz planificación de reservas, al mismo tiempo que se mejora la atención al cliente.
