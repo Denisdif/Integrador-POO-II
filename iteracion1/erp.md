@@ -44,4 +44,4 @@ Centro de masajes *Carelly*.
 *Carelly* será una aplicación web que se enmarcará en la arquitectura Cliente-Servidor:
 * Para el cliente (*frontend*), usaremos HTML, CSS y JavaScript. Es posible que implementemos el framework Bootstrap, que nos facilitará la creación de una interfaz de usuario moderna, elegante y receptiva.
 * Para el servidor (*backend*), utilizaremos el lenguaje de programación Java en combinación con el framework Springboot.
-* Implementaremos la base de datos PostgreSQL para proporcionar persistencia. 
+* Implementaremos la base de datos MySQL para proporcionar persistencia. 
