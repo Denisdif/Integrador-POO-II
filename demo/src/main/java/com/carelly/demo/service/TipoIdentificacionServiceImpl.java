@@ -34,17 +34,16 @@ public class TipoIdentificacionServiceImpl implements ITipoIdentificacionService
     }
 
     @Override
+    public void delete(Long id) {
+        tipoIdentificacionJpaRepository.deleteById(id);
+    }
+
+    @Override
     public List<TipoIdentificacionDto> getAll() {
         List<TipoIdentificacion> listEntity = tipoIdentificacionJpaRepository.findAll();
         List<TipoIdentificacionDto> listDto = listEntity.stream().map(tipo -> modelMapper.
             map(tipo, TipoIdentificacionDto.class)).collect(Collectors.toList());
         return listDto;
     }
-
-    @Override
-    public void delete(Long id) {
-        tipoIdentificacionJpaRepository.deleteById(id);
-    }
-
 
 }
