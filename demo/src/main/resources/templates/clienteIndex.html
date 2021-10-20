@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head th:replace="/layout :: head">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+   
+    <title>Clientes</title>
+
+  </head>
+
+  <body> 
+
+    <nav th:replace="/layout :: nav"></nav>
+    <nav th:fragment="nav" class="navbar navbar-expand-lg " style="background-color: #161D6F; color: aliceblue;">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <br>
+    <div class="container-fluid">
+      <div class="row">
+          <div class=" offset-md-2 col-sm-8">
+              <div class="card">
+                  <div class="card-header">
+                      <div style="display: flex; justify-content: space-between; align-items: center;">
+                          <span id="card_title">
+                            <b>Clientes </b>
+                          </span>
+                           <div class="float-right">
+                              <a href="" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                Cargar nuevo
+                              </a>
+                            </div>
+                      </div>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table table-striped table-hover">
+                              <thead class="thead">
+                                  <tr>
+                                    <th>Nombre completo</th>
+                                    <th>Identificación</th>
+                                    <th>Teléfono</th>
+                                    <th>Acción</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <!-- Arreglo con clientes -->
+                                <tr>
+                                    <td>
+                                        Cristian Pavón
+                                    </td>
+                                    <td>
+                                        DNI 39.524.457
+                                    </td>
+                                    <td>
+                                        2978458695
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary" href=""> Ver</a>
+                                        <a class="btn btn-sm btn-success" href=""> Editar</a>
+                                        <a class="btn btn-sm btn-danger " href=""> Eliminar</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Julián Álvarez
+                                    </td>
+                                    <td>
+                                        DNI 26.062.011
+                                    </td>
+                                    <td>
+                                        2978458694
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-primary" href=""> Ver</a>
+                                        <a class="btn btn-sm btn-success" href=""> Editar</a>
+                                        <a class="btn btn-sm btn-danger " href=""> Eliminar</a>
+                                    </td>
+                                </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <footer th:replace="/layout :: footer"></footer>
+  <footer th:fragment="footer" class="text-center fixed-bottom" style="background-color: #161D6F; color: aliceblue;">
+    &copy;2021 Módulo Apóstoles UNaM
+  </footer>
+
+  </body>
+</html>
