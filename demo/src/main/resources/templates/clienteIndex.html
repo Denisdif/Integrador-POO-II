@@ -13,15 +13,6 @@
   <body> 
 
     <nav th:replace="/layout :: nav"></nav>
-    <nav th:fragment="nav" class="navbar navbar-expand-lg " style="background-color: #161D6F; color: aliceblue;">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/">Home <span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-        </div>
-      </nav>
     <br>
     <div class="container-fluid">
       <div class="row">
@@ -33,7 +24,7 @@
                             <b>Clientes </b>
                           </span>
                            <div class="float-right">
-                              <a href="" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                              <a href="http://localhost:8080/Cliente/new" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                 Cargar nuevo
                               </a>
                             </div>
@@ -52,31 +43,12 @@
                               </thead>
                               <tbody>
                                 <!-- Arreglo con clientes -->
-                                <tr>
-                                    <td>
-                                        Cristian Pavón
+                                <tr th:each="cliente: ${list}">
+                                    <td th:text="${cliente.persona.nombre} + ' ' + ${cliente.persona.apellido}">
                                     </td>
-                                    <td>
-                                        DNI 39.524.457
+                                    <td th:text="${cliente.persona.tipoIdentificacion.tipoIdentificacion} + ' ' + ${cliente.persona.identificacion}">
                                     </td>
-                                    <td>
-                                        2978458695
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href=""> Ver</a>
-                                        <a class="btn btn-sm btn-success" href=""> Editar</a>
-                                        <a class="btn btn-sm btn-danger " href=""> Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Julián Álvarez
-                                    </td>
-                                    <td>
-                                        DNI 26.062.011
-                                    </td>
-                                    <td>
-                                        2978458694
+                                    <td  th:text="${cliente.persona.telefono}">
                                     </td>
                                     <td>
                                         <a class="btn btn-sm btn-primary" href=""> Ver</a>
