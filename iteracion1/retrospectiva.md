@@ -1,0 +1,6 @@
+# Retrospectiva 
+La iteración 1 fue un desafío interesante, como cualquier proyecto que se inicia sin conocer las tecnologías a implementar. En este sentido, lo primero que debimos hacer fue amigarnos con las herramientas que conforman nuestro entorno de desarrollo, sobre todo para la parte de back-end: el lenguaje Java con Maven y el framework SpringBoot. En la parte de front-end no tuvimos mayores inconvenientes ya que contábamos con los conocimientos requeridos.
+
+En cuanto al diseño del sistema, no tuvimos grandes sobresaltos. La complicación llegó con la parte de los problemas físicos (cómo diseñar la vista para cargarlos, ya que lo pensamos en la misma vista de la carga del cliente). Es una relación muchos a muchos porque estamos tratando de trabajar e implementar siguiendo las buenas prácticas del lenguaje y de la propia metodología Orientada a Objetos.
+
+Por la parte de testing, habíamos entendido que era prescindible en esta primera iteración, por lo que se han realizado. En cuanto a las validaciones, no tuvimos tiempo para llegar a implementarlas. Asimismo, cabe destacar que no tuvimos inconvenientes con el aprendizaje y el curso de trabajo.
