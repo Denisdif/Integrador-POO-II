@@ -12,6 +12,7 @@ Trabajos realizados por cada integrante:
 ## Wireframes
 **Pantalla principal de Tipos de Masajes**
 ![Diagrama de clases](img/tiposMasajes.png)
+
 **Formulario para crear un Tipo de Masaje**
 ![Diagrama de clases](img/tiposMasajesForm.png)
 
