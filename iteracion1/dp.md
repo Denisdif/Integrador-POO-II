@@ -77,5 +77,3 @@ Lista tentativa de tareas a realizar para cumplir con lo planificado:
 6) Integrar *Data Transfer Object (DTO)* para el transporte de los datos.
 7) Generar los servicios para las clases.
 8) Generar vistas y controladores para la clase Cliente.
-
-# Retrospectiva
