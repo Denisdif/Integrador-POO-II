@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head th:replace="/layout :: head">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Hello, world!</title>
+
+  </head>
+
+  <body>
+
+    <nav th:replace="/layout :: nav"></nav>
+
+    <legend>Tipo de indentificación form</legend>
+
+    <form id="form" th:action="@{/Problema/save}" method="POST" th:object="${form}">
+        <input type="hidden" th:field="*{problema.id}">
+        <table cellpadding="5" cellspacing="5">
+            <tr>
+                <td>
+                  <label for="Problema">Name</label>
+                </td>
+                <td>
+                  <input type="text" size="25" th:field="*{problema.problema}">
+                </td>
+            </tr>
+
+            <tr>
+                <td>&nbsp;</td>
+                <td><input class="button" type="submit" value="save"></td>
+            </tr>
+        </table>
+    </form>
+
+    <footer th:replace="/layout :: footer"></footer>
+
+  </body>
+</html>

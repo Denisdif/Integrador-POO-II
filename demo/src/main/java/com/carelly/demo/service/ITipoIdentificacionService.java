@@ -1,7 +1,5 @@
 package com.carelly.demo.service;
-
 import java.util.List;
-
 import com.carelly.demo.dto.TipoIdentificacionDto;
 
 public interface ITipoIdentificacionService {

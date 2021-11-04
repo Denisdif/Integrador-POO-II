@@ -33,9 +33,4 @@ public class ProblemaDto {
     }
 // </editor-fold>
 
-    @Override
-    public String toString() {
-        return "Problema [problema=" + problema + "]";
-    }
-
 }
