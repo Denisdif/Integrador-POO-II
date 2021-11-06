@@ -1,51 +1,47 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <head th:replace="/layout :: head">  </head>
-    <title>Tipo de Masaje</title>
-  </head>
-
-  <body > 
-
-    <nav th:replace="/layout :: nav"></nav>
-    <br>
-    <div class="container-fluid">
-      <div class="row">
-          <div class=" offset-md-2 col-sm-8">
-              <div class="card">
-                  <div class="card-header">
-                      <div style="display: flex; justify-content: space-between; align-items: center;">
-                          <span id="card_title">
-                            <b>Tipos de masajes</b>
-                          </span>
+<head>
+  <head th:replace="/layout :: head">  </head>
+  <title>Tipo de Masaje</title>
+</head>
+<body > 
+  <nav th:replace="/layout :: nav"></nav>
+  <div class="container-fluid">
+    <div class="row">
+        <div class=" offset-md-2 col-sm-8">
+            <div class="card">
+                <div class="card-header">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span id="card_title">
+                          <b>Tipos de masajes</b>
+                        </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                  <form id="form" th:action="@{/TipoMasaje/save}" method="POST" th:object="${form}">
+                      <!-- Nombre -->
+                      <div class="form-group">
+                          <label for="">Nombre:</label>
+                          <input type="text" class="form-control" placeholder="Nombre del masaje" th:field="*{tipoMasaje.tipoMasaje}">
                       </div>
-                  </div>
-                  <div class="card-body">
-                    <form id="form" th:action="@{/TipoMasaje/save}" method="POST" th:object="${form}">
-                        <div class="row">
-                          <div class="col">
-                            <input type="text" class="form-control" placeholder="Nombre del masaje" th:field="*{tipoMasaje.tipoMasaje}">
-                          </div>
-                          
-                        </div>
-                        <br>
-                        <div class="form-group">
+                      <!-- Descripción -->
+                      <div class="form-group">
+                          <label for="">Descripción:</label>
                           <textarea class="form-control rounded-0"  rows="3" placeholder="Descripción del masaje" th:field="*{tipoMasaje.descripcionMasaje}"></textarea>
-                        </div>
- 
-                        <div style="text-align: right;">
-                            <button  type="submit" class="btn btn-primary">Cargar</button>
-                            <button  class="btn btn-danger">Cancelar</button>
-                        </div>
-                        
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                      </div>
+                      <!-- Botones -->
+                      <div style="text-align: right;">
+                          <button  type="submit" class="btn btn-primary">Cargar</button>
+                          <a class="btn btn-danger" href="javascript:history.back()">Cancelar</a>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-  <footer th:replace="/layout :: footer"></footer>
+<footer th:replace="/layout :: footer"></footer>
 
-  </body>
+</body>
 </html>

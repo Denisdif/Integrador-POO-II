@@ -39,7 +39,7 @@
                                 <td th:text="${tipoMasaje.descripcionMasaje}">
                                 </td>
                                 <td>
-                                    <a class="btn btn-sm btn-danger " href=""> Eliminar</a>
+                                    <a class="btn btn-sm btn-danger " th:href="@{delete/} + ${tipoMasaje.id}"> Eliminar</a>
                                 </td>
                             </tbody>
                         </table>

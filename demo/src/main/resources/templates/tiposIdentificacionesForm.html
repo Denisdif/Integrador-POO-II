@@ -19,14 +19,16 @@
                   </div>
                   <div class="card-body">
                     <form id="form" th:action="@{/TipoIdentificacion/save}" method="POST" th:object="${form}">
-                        <div class="row">
-                          <div class="col">
+                        <!-- Nombre -->
+                        <div class="form-group">
+                            <label for="">Nombre:</label>
                             <input type="text" class="form-control" placeholder="Nombres" th:field="*{tipo.tipoIdentificacion}">
-                          </div>
                         </div>
+
+                        <!-- Botones -->
                         <div style="text-align: right;">
                             <button  type="submit" class="btn btn-primary">Cargar</button>
-                            <button  class="btn btn-danger">Cancelar</button>
+                            <a class="btn btn-danger" href="javascript:history.back()">Cancelar</a>
                         </div>
                       </form>
                   </div>

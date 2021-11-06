@@ -10,7 +10,7 @@ public class ClienteForm {
     private ClienteDto cliente;
     private PersonaDto persona;
     private List<TipoIdentificacionDto> tipos;
-    private List<ProblemaDto> problemas;
+    private List<ProblemaDto> problemasAll;
 
     public List<TipoIdentificacionDto> getTipos() {
         return tipos;
@@ -36,11 +36,11 @@ public class ClienteForm {
         this.persona = persona;
     }
 
-    public List<ProblemaDto> getProblemas() {
-        return problemas;
+    public List<ProblemaDto> getProblemasAll() {
+        return problemasAll;
     }
 
-    public void setProblemas(List<ProblemaDto> problemas) {
-        this.problemas = problemas;
+    public void setProblemasAll(List<ProblemaDto> problemasAll) {
+        this.problemasAll = problemasAll;
     }
 }

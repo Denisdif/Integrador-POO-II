@@ -9,6 +9,7 @@ import com.carelly.demo.service.ITipoMasajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -56,6 +57,12 @@ public class TipoMasajeController {
         tipoMasaje.create(form.getTipoMasaje());
 
         //Se retorna la vista principal del objeto
+        return new ModelAndView("redirect:/TipoMasaje/show");
+    }
+
+    @GetMapping(value = "/delete/{id}")
+    public ModelAndView delete(@ModelAttribute("id") Long id) {
+        tipoMasaje.delete(id);
         return new ModelAndView("redirect:/TipoMasaje/show");
     }
 }

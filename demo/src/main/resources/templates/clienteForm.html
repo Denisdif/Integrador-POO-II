@@ -6,7 +6,6 @@
   </head>
   <body > 
     <nav th:replace="/layout :: nav"></nav>
-    <br>
     <div class="container-fluid">
       <div class="row">
           <div class=" offset-md-2 col-sm-8">
@@ -20,72 +19,90 @@
                   </div>
                   <div class="card-body">
                     <form id="form" th:action="@{/Cliente/save}" method="POST" th:object="${form}">
-                        <div class="row">
+                      <!-- Campos hidden id -->
+                      <input hidden type="text" name="id" th:field="*{persona.id}" th:value="*{persona != null} ? *{persona.id}">
+                      <input hidden type="text" name="id" th:field="*{cliente.id}" th:value="*{cliente != null} ? *{cliente.id}">
+
+                      <!-- Nombre completo -->
+                      <div class="row form-group">
                           <div class="col">
-                            <input type="text" class="form-control" placeholder="Nombres" th:field="*{persona.nombre}">
+                              <label for="">Nombre:</label>
+                              <input type="text" class="form-control" placeholder="Nombres" th:field="*{persona.nombre}">
                           </div>
                           <div class="col">
-                            <input type="text" class="form-control" placeholder="Apellidos" th:field="*{persona.apellido}">
+                              <label for="">Apellido:</label>
+                              <input type="text" class="form-control" placeholder="Apellidos" th:field="*{persona.apellido}">
                           </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-6">
-                                <select class="form-control"  th:object="${form}" th:field="*{persona.tipoIdentificacion}" style="padding: 5px;">
-                                  <option th:each="tipoItem: *{tipos}"
-                                      th:value="${tipoItem.id}"
-                                      th:utext="${tipoItem.tipoIdentificacion}">
-                                </select>
-                            </div>
-                            <div class="col">
-                              <input type="text" class="form-control" placeholder="Nro de identificación" th:field="*{persona.identificacion}">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col">
-                              <input type="text" class="form-control" placeholder="Email" th:field="*{persona.email}">
-                            </div>
-                            <div class="col">
-                              <input type="text" class="form-control" placeholder="Teléfono" th:field="*{persona.telefono}">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col">
-                              <input type="text" class="form-control" placeholder="Sexo" th:field="*{persona.sexo}">
-                              <!-- 
-                                <select class="form-control">
-                                    <option>Sexos</option>
-                                  </select>   -->
-                            </div>
-                            
-                            <div class="col">
-                              <input type="text" class="form-control" placeholder="Dirección" th:field="*{persona.direccion}">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-6">
-                              <select class="form-control">
-                                <option>Problemas físicos</option>
+                      </div>
+
+                      <!-- Identificación -->
+                      <div class="row form-group">
+                          <div class="col-6">
+                              <label for="">Tipo de identificación:</label>
+                              <select class="form-control"  th:object="${form}" th:field="*{persona.tipoIdentificacion}" style="padding: 5px;">
+                                <option th:each="tipoItem: *{tipos}"
+                                    th:value="${tipoItem.id}"
+                                    th:utext="${tipoItem.tipoIdentificacion}">
                               </select>
-                            </div>
-                        </div>
-                        <br>
-                        <div style="text-align: right;">
-                            <button  type="submit" class="btn btn-primary">Cargar</button>
-                            <button  class="btn btn-danger">Cancelar</button>
-                        </div>
-                        
+                          </div>
+                          <div class="col">
+                              <label for="">Código:</label>
+                              <input type="text" class="form-control" placeholder="Código de identificación" th:field="*{persona.identificacion}">
+                          </div>
+                      </div>
+
+                      <!-- Contacto -->
+                      <div class="row form-group">
+                          <div class="col">
+                              <label for="">Email:</label>
+                              <input type="text" class="form-control" placeholder="Email" th:field="*{persona.email}">
+                          </div>
+                          <div class="col">
+                              <label for="">Teléfono:</label>
+                              <input type="text" class="form-control" placeholder="Teléfono" th:field="*{persona.telefono}">
+                          </div>
+                      </div>
+
+                      <!-- Sexo y dirección -->
+                      <div class="row form-group">
+                          <div class="col">
+                              <label for="">Sexo:</label>
+                              <select class="form-control" th:field="*{persona.sexo}">
+                                  <option value="">          -- Seleccione --    </option>
+                                  <option value="Femenino">           Femenino            </option>
+                                  <option value="Masculino">          Masculino           </option>
+                                  <option value="Prefiero no decirlo">Prefiero no decirlo </option>
+                                </select>   
+                          </div>
+                          <div class="col">
+                            <label for="">Dirección:</label>
+                            <input type="text" class="form-control" placeholder="Dirección" th:field="*{persona.direccion}">
+                          </div>
+                      </div>
+
+                      <!-- Problemas físicos -->
+                      <div class="row form-group">
+                          <div class="col-6">
+                            <label for="">Problemas físicos:</label>
+                            <select class="form-control js-basic-multiple" th:object="${form}" th:field="*{persona.problemas}" multiple="multiple">
+                              <option th:each="Item: *{problemasAll}"
+                                    th:value="${Item.id}"
+                                    th:utext="${Item.problema}">
+                            </select>
+                          </div>
+                      </div>
+                      
+                      <!-- Botones -->
+                      <div style="text-align: right;">
+                          <button  type="submit" class="btn btn-primary">Cargar</button>
+                          <a class="btn btn-danger" href="javascript:history.back()">Cancelar</a>
+                      </div>
                       </form>
                   </div>
               </div>
           </div>
       </div>
     </div>
-
   <footer th:replace="/layout :: footer"></footer>
-
   </body>
 </html>

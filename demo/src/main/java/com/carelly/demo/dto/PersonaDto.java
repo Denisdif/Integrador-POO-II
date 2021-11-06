@@ -1,5 +1,8 @@
 package com.carelly.demo.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+import com.carelly.demo.model.Problema;
 import com.carelly.demo.model.TipoIdentificacion;
 
 public class PersonaDto {
@@ -14,6 +17,7 @@ public class PersonaDto {
     private String email;
     private String direccion;
     private TipoIdentificacion tipoIdentificacion;
+    private List<Problema> problemas = new ArrayList<Problema>();
 // </editor-fold>
 
 // <editor-fold desc="Constructores">
@@ -104,6 +108,14 @@ public class PersonaDto {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public List<Problema> getProblemas() {
+        return problemas;
+    }
+
+    public void setProblemas(List<Problema> problemas) {
+        this.problemas = problemas;
     }
 // </editor-fold>
 

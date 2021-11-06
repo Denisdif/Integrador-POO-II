@@ -6,7 +6,6 @@
   </head>
   <body> 
     <nav th:replace="/layout :: nav"></nav>
-    <br>
     <div class="container-fluid">
       <div class="row">
           <div class=" offset-md-2 col-sm-8">
@@ -44,9 +43,8 @@
                                     <td  th:text="${cliente.persona.telefono}">
                                     </td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" href=""> Ver</a>
-                                        <a class="btn btn-sm btn-success" href=""> Editar</a>
-                                        <a class="btn btn-sm btn-danger " href=""> Eliminar</a>
+                                        <a class="btn btn-sm btn-success" th:href="@{edit/} + ${cliente.id}"> Editar</a>
+                                        <a class="btn btn-sm btn-danger " href=""> Dar de baja</a>
                                     </td>
                                 </tr>
                               </tbody>

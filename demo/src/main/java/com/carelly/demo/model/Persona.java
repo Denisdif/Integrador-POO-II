@@ -1,11 +1,16 @@
 package com.carelly.demo.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -41,6 +46,13 @@ public class Persona {
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_tipoIdent")
     private TipoIdentificacion tipoIdentificacion;
+
+    @ManyToMany()
+    @JoinTable( name               = "persona_problema",
+                joinColumns        = { @JoinColumn(name = "persona_id" ) }, 
+                inverseJoinColumns = { @JoinColumn(name = "problema_id") }
+                )
+    private List<Problema> problemas = new ArrayList<Problema>();
 // </editor-fold>
 
 // <editor-fold desc="Constructores">
@@ -132,7 +144,15 @@ public class Persona {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-// </editor-fold>
+
+    public List<Problema> getProblemas() {
+        return problemas;
+    }
+
+    public void setProblemas(List<Problema> problemas) {
+        this.problemas = problemas;
+    }
+    // </editor-fold>
 
     @Override
     public String toString() {
