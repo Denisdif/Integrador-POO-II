@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <head th:replace="../templates/layout :: head"></head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,34 @@
     <title>Document</title>
 </head>
 <body>
+    <nav th:fragment="nav" class="navbar navbar-expand-lg " style="background-color: #161D6F; color: aliceblue;">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/">                    Home                     <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/Cliente/show">        Clientes                 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/TipoMasaje/show">     Tipo de masajes          <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/Problema/show">         Problemas físicos        <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/TipoIdentificacion/show">Tipo de identificación  <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+      <br>
     <div style="text-align: center;" class="row">
         <div class="col-6 offset-md-3">
             <div class="card text-white bg-primary">
             <img class="card-img-top" src="holder.js/100px180/" alt="">
             <div class="card-body">
-                <h4 class="card-title">POO II</h4>
-                <p style="color: chartreuse;" class="card-text">Aprobado</p>
+                <h4 class="card-title">Carelly</h4>
             </div>
             </div>
         </div>
@@ -22,9 +44,8 @@
     <div style="text-align: center;" class="row">
         <div class="col-6 offset-md-3">
             <div class="card text-white">
-            <img class="card-img-top" src="holder.js/100px180/" alt="">
             <div class="card-body">
-                <img src="https://previews.123rf.com/images/roxanabalint/roxanabalint1502/roxanabalint150200136/36465731-aprobado-sello-de-goma-del-grunge-en-blanco-en-espa%C3%B1ol-ilustraci%C3%B3n-vectorial.jpg" class="img-fluid" alt="...">
+                <img src="https://i.pinimg.com/originals/bf/d8/76/bfd876d446ca64689bdf6b992b23df37.jpg" class="img-fluid" alt="...">
             </div>
             </div>
         </div>

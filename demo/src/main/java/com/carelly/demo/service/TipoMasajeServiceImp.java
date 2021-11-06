@@ -6,10 +6,11 @@ import java.util.stream.Collectors;
 import com.carelly.demo.dto.TipoMasajeDto;
 import com.carelly.demo.model.TipoMasaje;
 import com.carelly.demo.repository.ITipoMasajeRepository;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TipoMasajeServiceImp implements ITipoMasajeService {
 
     @Autowired
