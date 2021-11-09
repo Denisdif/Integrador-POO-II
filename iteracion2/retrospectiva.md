@@ -1,0 +1,2 @@
+# Retrospectiva 
+En la presente iteración nos encontramos con dificultades con las funciones editar (o modificar), sobre todo para el módulo de clientes. También fue un desafío implementar la carga de varios problemas físicos en la carga de un nuevo cliente. Planteamos la opción de deshabilitación de problemas físicos y tipos de masajes para evitar que la eliminación de los mismos genere falta de integridad en la base de datos. También quedaron pendientes tareas de validación.
