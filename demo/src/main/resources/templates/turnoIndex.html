@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head th:fragment="head">
+        <head th:replace="/layout :: head">  </head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+      </head>
+  <body>
+    <nav th:replace="/layout :: nav"></nav>
+      <div class="container-fluid">
+        <div class="row">
+            <div class=" offset-md-2 col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span id="card_title">
+                                <b>Turnos</b> 
+                            </span>
+                             <div class="float-right">
+                                <a href="http://localhost:8080/Turno/new" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  Cargar nuevo
+                                </a>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Nro turno </th>
+                                        <th>Cliente   </th>
+                                        <th>Fecha     </th>
+                                        <th>Acción    </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="turno: ${list}">
+                                        <td th:text="${turno.id}">
+                                        </td>
+                                        <td th:text="${turno.cliente.persona.nombre}">
+                                        </td>
+                                        <td th:text="${turno.fecha}">
+                                        </td>
+                                        <td>   
+                                            <a class="btn btn-sm btn-success" > Editar</a>
+                                            <a class="btn btn-sm btn-danger " href=""> Cancelar</a>    
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer th:replace="/layout :: footer"></footer>
+  </body>
+</html>

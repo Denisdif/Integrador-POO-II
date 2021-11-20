@@ -3,7 +3,9 @@ import java.util.List;
 import com.carelly.demo.model.TipoMasaje;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ITipoMasajeRepository extends JpaRepository<TipoMasaje,Long>{
     //select fields from TipoIdentificacion where id='[parametro]'
     TipoMasaje findByid(String id);

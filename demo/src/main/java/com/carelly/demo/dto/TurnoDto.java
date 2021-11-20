@@ -1,23 +1,28 @@
 package com.carelly.demo.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.carelly.demo.model.Cliente;
+import com.carelly.demo.model.TipoMasaje;
 
 public class TurnoDto {
-    // <editor-fold desc="Atributos">
+// <editor-fold desc="Atributos">
    private Long id;
    private Date fecha;
    private Cliente cliente;
+   private List<TipoMasaje> tipoMasajes = new ArrayList<TipoMasaje>();
 // </editor-fold>
 
 // <editor-fold desc="Constructores">
     public TurnoDto() {
 
     }
-    public TurnoDto(Date fecha, Cliente cliente) {
+    public TurnoDto(Date fecha, Cliente cliente, List<TipoMasaje> tipoMasajes) {
         this.fecha = fecha;
         this.cliente = cliente;
+        this.tipoMasajes = tipoMasajes;
     }
 // </editor-fold>
 
@@ -40,6 +45,12 @@ public class TurnoDto {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+    public List<TipoMasaje> getTipoMasajes() {
+        return tipoMasajes;
+    }
+    public void setTipoMasajes(List<TipoMasaje> tipoMasajes) {
+        this.tipoMasajes = tipoMasajes;
+    }
+
 // </editor-fold>
-    
 }

@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 import com.carelly.demo.dto.TurnoDto;
 import com.carelly.demo.model.Turno;
 import com.carelly.demo.repository.ITurnoJpaRepository;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
