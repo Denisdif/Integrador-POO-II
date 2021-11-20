@@ -1,6 +1,7 @@
 package com.carelly.demo.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.carelly.demo.model.Persona;
 
@@ -12,6 +13,9 @@ import org.springframework.stereotype.Repository;
 public interface IPersonaJpaRepository extends JpaRepository<Persona,Long> {
     //select fields from Persona where id='[parametro]'
     //Persona findByid(String id);
+    
+    Optional<Persona> findByApellido(String apellido);
+    
     @Cacheable(value = "Personas")
     List<Persona> findAll();
 }
