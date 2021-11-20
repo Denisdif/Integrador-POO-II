@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ITipoMasajeRepository extends JpaRepository<TipoMasaje,Long>{
     //select fields from TipoIdentificacion where id='[parametro]'
-    TipoMasaje findByid(String id);
+    //TipoMasaje findByid(String id);
     @Cacheable(value = "tiposMsajeTipoMasaje")
     List<TipoMasaje> findAll();
 }

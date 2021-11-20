@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IProblemaRepository extends JpaRepository<Problema,Long>{
     //select fields from Problema where id='[parametro]'
-    Problema findByid(String id);
+    //Problema findByid(String id);
     @Cacheable(value = "Problemas")
     List<Problema> findAll();
 }
