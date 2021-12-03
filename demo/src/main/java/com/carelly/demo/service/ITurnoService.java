@@ -7,4 +7,5 @@ public interface ITurnoService {
     public TurnoDto get(Long id);
     public void delete(Long id);
     public List<TurnoDto> getAll();
+    public List<TurnoDto> getSolicitudes();
 }

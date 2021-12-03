@@ -1,45 +1,45 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <head th:replace="/layout :: head">  </head>
+
+<head>
+
+    <head th:replace="/layout :: head"> </head>
     <title>Problemas físicos</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <nav th:replace="/layout :: nav"></nav>
     <div class="container-fluid">
-      <div class="row">
-          <div class=" offset-md-2 col-sm-8">
-              <div class="card">
-                  <div class="card-header">
-                      <div style="display: flex; justify-content: space-between; align-items: center;">
-                          <span id="card_title">
-                            <b>problemas físicos </b>
+        <div class="row">
+            <div class=" offset-md-2 col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span id="card_title">
+                            <b>Problemas físicos </b>
                           </span>
-                      </div>
-                  </div>
-                  <div class="card-body">
-                    <form id="form" th:action="@{/Problema/save}" method="POST" th:object="${form}">
-                        <!-- Nombre -->
-                        <div class="form-group">
-                            <label for="">Nombre:</label>
-                            <input type="text" class="form-control" placeholder="Nombres" th:field="*{problema.problema}">
                         </div>
+                    </div>
+                    <div class="card-body">
+                        <form id="form" th:action="@{/Problema/save}" method="POST" th:object="${form}">
+                            <!-- Nombre -->
+                            <div class="form-group">
+                                <label for="">Nombre:</label>
+                                <input type="text" class="form-control" placeholder="Nombres" th:field="*{problema.problema}">
+                            </div>
 
-                        <!-- Botones -->
-                        <div style="text-align: right;">
-                            <button  type="submit" class="btn btn-primary">Cargar</button>
-                            <a class="btn btn-danger" href="javascript:history.back()">Cancelar</a>
-                        </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
+                            <!-- Botones -->
+                            <div style="text-align: right;">
+                                <button type="submit" class="btn btn-primary">Cargar</button>
+                                <a class="btn btn-danger" href="javascript:history.back()">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-
     <footer th:replace="/layout :: footer"></footer>
+</body>
 
-  </body>
 </html>

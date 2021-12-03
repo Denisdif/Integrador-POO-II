@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.carelly.demo.model.Cliente;
+import com.carelly.demo.model.Persona;
 import com.carelly.demo.model.TipoMasaje;
 
 public class TurnoDto {
 // <editor-fold desc="Atributos">
    private Long id;
    private Date fecha;
-   private Cliente cliente;
+   private Persona persona;
+   private Boolean habilitado;
    private List<TipoMasaje> tipoMasajes = new ArrayList<TipoMasaje>();
 // </editor-fold>
 
@@ -19,9 +20,9 @@ public class TurnoDto {
     public TurnoDto() {
 
     }
-    public TurnoDto(Date fecha, Cliente cliente, List<TipoMasaje> tipoMasajes) {
+    public TurnoDto(Date fecha, Persona persona, List<TipoMasaje> tipoMasajes) {
         this.fecha = fecha;
-        this.cliente = cliente;
+        this.persona = persona;
         this.tipoMasajes = tipoMasajes;
     }
 // </editor-fold>
@@ -39,11 +40,17 @@ public class TurnoDto {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    public Cliente getCliente() {
-        return cliente;
+    public Boolean getHabilitado() {
+        return habilitado;
     }
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setHabilitado(Boolean habilitado) {
+        this.habilitado = habilitado;
+    }
+    public Persona getPersona() {
+        return persona;
+    }
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
     public List<TipoMasaje> getTipoMasajes() {
         return tipoMasajes;

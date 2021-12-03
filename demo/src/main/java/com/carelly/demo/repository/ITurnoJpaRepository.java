@@ -11,4 +11,5 @@ public interface ITurnoJpaRepository extends JpaRepository<Turno,Long>{
     Turno findByid(String id);
     @Cacheable(value = "Turnos")
     List<Turno> findAll();
+    List<Turno> findByHabilitado(Boolean habilitado);
 }

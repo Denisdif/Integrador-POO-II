@@ -4,15 +4,19 @@ import java.util.HashMap;
 
 import com.carelly.demo.dto.ClienteDto;
 import com.carelly.demo.dto.PersonaDto;
+import com.carelly.demo.dto.UserDto;
 import com.carelly.demo.model.Persona;
+import com.carelly.demo.model.User;
 import com.carelly.demo.mvc.form.ClienteForm;
 import com.carelly.demo.service.IClienteService;
 import com.carelly.demo.service.IPersonaService;
 import com.carelly.demo.service.IProblemaService;
 import com.carelly.demo.service.ITipoIdentificacionService;
+import com.carelly.demo.service.IUserService;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -36,6 +40,9 @@ public class ClienteController {
     IPersonaService persona;
 
     @Autowired
+    IUserService user;
+
+    @Autowired
     private ModelMapper modelMapper;
 
     @GetMapping("/show")
@@ -55,20 +62,37 @@ public class ClienteController {
         //Se genera un objeto para almacenar datos
         var params = new HashMap<String, Object>();
 
-        //Se genera un objeto form para almacenar datos
-        ClienteForm form = new ClienteForm();
+        String nombre = (SecurityContextHolder.getContext().getAuthentication().getName());
+        UserDto userDto = user.get(nombre);
+        if (userDto.getPersona()== null) {
+            //Se genera un objeto form para almacenar datos
+            ClienteForm form = new ClienteForm();
 
-        //Se asigna al objeto form los datos para la carga 
-        form.setCliente(new ClienteDto());
-        form.setPersona(new PersonaDto());
-        form.setTipos(tipo.getAll());
-        form.setProblemasAll(problema.getAll());
+            //Se asigna al objeto form los datos para la carga 
+            form.setCliente(new ClienteDto());
+            form.setPersona(new PersonaDto());
+            form.setTipos(tipo.getAll());
+            form.setProblemasAll(problema.getAll());
 
-        //Se añade a params el form generado anteriormente
-        params.put("form", form);
+            //Se añade a params el form generado anteriormente
+            params.put("form", form);
 
-        //Se retorna la vista del formulario con el params
-        return new ModelAndView("clienteForm", params);
+            //Se retorna la vista del formulario con el params
+            return new ModelAndView("clienteForm", params);
+        } else {
+            ClienteForm form = new ClienteForm();
+
+            //Se asigna al objeto form los datos para la carga 
+            form.setPersona(persona.get(userDto.getPersona().getId())); //Se asigna la persona que pertenece al cliente que se paso como parametro
+            form.setTipos(tipo.getAll());
+            form.setProblemasAll(problema.getAll());
+    
+            params.put("form", form);
+    
+            return new ModelAndView("clienteForm", params);
+        
+        }
+
     }
 
     @GetMapping(value = "/edit/{id}")
@@ -93,11 +117,10 @@ public class ClienteController {
         //Se almacenan los datos de Persona
         PersonaDto personaDto = persona.create(form.getPersona());
 
-        //Se asocia la persona cargada al clienteForm
-        form.getCliente().setPersona(modelMapper.map(personaDto, Persona.class));
-
-        //Se almacenan los datos de Cliente
-        cliente.create(form.getCliente());
+        String nombre = (SecurityContextHolder.getContext().getAuthentication().getName());
+        UserDto userDto = user.get(nombre);
+        userDto.setPersona(modelMapper.map(personaDto, Persona.class));
+        user.create(userDto);
 
         return new ModelAndView("redirect:/Cliente/show");
     }
