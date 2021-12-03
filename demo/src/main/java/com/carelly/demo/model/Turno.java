@@ -28,12 +28,15 @@ public class Turno {
    @Column(nullable = false)
    private Date fecha;
 
+   @Column(nullable = true)
+   private Boolean habilitado;
+
    @ManyToOne(optional = false)
-   @JoinColumn(name = "id_cliente")
-   private Cliente cliente;
+   @JoinColumn(name = "id_persona")
+   private Persona persona;
 
    @ManyToMany()
-   @JoinTable( name               = "truno_tipomasaje",
+   @JoinTable( name               = "turno_tipomasaje",
                joinColumns        = { @JoinColumn(name = "turno_id" ) }, 
                inverseJoinColumns = { @JoinColumn(name = "tipoMasaje_id") }
                )
@@ -44,9 +47,9 @@ public class Turno {
     public Turno() {
     }    
 
-    public Turno(Date fecha, Cliente cliente, List<TipoMasaje> tipoMasajes) {
+    public Turno(Date fecha, Persona persona, List<TipoMasaje> tipoMasajes) {
         this.fecha = fecha;
-        this.cliente = cliente;
+        this.persona = persona;
         this.tipoMasajes = tipoMasajes;
     }
 // </editor-fold>
@@ -68,12 +71,12 @@ public class Turno {
         this.fecha = fecha;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Persona getPersona() {
+        return persona;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 
     public List<TipoMasaje> getTipoMasajes() {
@@ -83,11 +86,19 @@ public class Turno {
     public void setTipoMasajes(List<TipoMasaje> tipoMasajes) {
         this.tipoMasajes = tipoMasajes;
     }
+
+    public Boolean getHabilitado() {
+        return habilitado;
+    }
+
+    public void setHabilitado(Boolean habilitado) {
+        this.habilitado = habilitado;
+    }
 // </editor-fold>
 
     @Override
     public String toString() {
-        return "Turno [cliente=" + cliente + ", fecha=" + fecha + "]";
+        return "Turno [persona=" + persona + ", tipoMasajes=" + tipoMasajes + "]";
     }
 
 }

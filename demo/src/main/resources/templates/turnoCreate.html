@@ -1,68 +1,62 @@
 <!doctype html>
 <html lang="en">
-    <head th:fragment="head">
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-      </head>
-  <body>
+
+<head th:fragment="head">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
     <nav th:replace="/layout :: nav"></nav>
     <div class="container-fluid">
-      <div class="row">
-          <div class=" offset-md-2 col-sm-8">
-              <div class="card">
-                  <div class="card-header">
-                      <div style="display: flex; justify-content: space-between; align-items: center;">
-                          <span id="card_title">
+        <div class="row">
+            <div class=" offset-md-2 col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span id="card_title">
                             <b>Turnos</b>
                           </span>
-                      </div>
-                  </div>
-                  <div class="card-body">
-                    <form id="form" th:action="@{/Turno/save}" method="POST" th:object="${form}">
-                        <!-- Cliente -->
-                        <div class="row form-group">
-                            <div class="col-6">
-                                <label for="">Cliente:</label>
-                                <select class="form-control"  th:object="${form}" th:field="*{turno.cliente}" style="padding: 5px;">
-                                  <option th:each="tipoItem: *{cliente}"
-                                      th:value="${tipoItem.id}"
-                                      th:utext="${tipoItem.persona.nombre} + ' ' + ${tipoItem.persona.apellido}">
-                                </select>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form id="form" th:action="@{/Turno/save}" method="POST" th:object="${form}">
+                            <!-- Fecha -->
+                            <div class="row form-group">
+                                <div class="col-6">
+                                    <label for="">Fecha:</label>
+                                    <input type="datetime-local" class="form-control" th:field="*{fecha}">
+                                </div>
                             </div>
-                        <!-- Fecha -->
-                            <div class="col-6">
-                              <label for="">Fecha:</label>
-                              <input type="datetime-local" class="form-control" th:field="*{fecha}">
-                          </div>
-                        </div>
 
-                        <!-- Masajes -->
-                        <div class="row form-group">
-                          <div class="col-6">
-                            <label for="">Masajes:</label>
-                            <select class="form-control js-basic-multiple" th:object="${form}" th:field="*{turno.tipoMasajes}" multiple="multiple">
-                              <option th:each="Item: *{tipoMasaje}"
-                                    th:value="${Item.id}"
-                                    th:utext="${Item.tipoMasaje}">
-                            </select>
-                          </div>
-                        </div>
+                            <!-- Masajes -->
+                            <div class="row form-group">
+                                <div class="col-6">
+                                    <label for="">Masajes:</label>
+                                    <select class="form-control js-basic-multiple" th:object="${form}" th:field="*{turno.tipoMasajes}" multiple="multiple">
+                                    <option th:each="Item: *{tipoMasaje}"
+                                          th:value="${Item.id}"
+                                          th:utext="${Item.tipoMasaje}">
+                                  </select>
+                                </div>
+                            </div>
 
-                        <!-- Botones -->
-                        <div style="text-align: right;">
-                            <button  type="submit" class="btn btn-primary">Cargar</button>
-                            <a class="btn btn-danger" href="javascript:history.back()">Cancelar</a>
-                        </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      </div>
+                            <!-- Botones -->
+                            <div style="text-align: right;">
+                                <button type="submit" class="btn btn-primary">Cargar</button>
+                                <a class="btn btn-danger" href="javascript:history.back()">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <footer th:replace="/layout :: footer"></footer>
-  </body>
+</body>
+
 </html>

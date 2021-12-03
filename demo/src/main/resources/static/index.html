@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <head th:replace="../templates/layout :: head"></head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,47 +10,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <title>Document</title>
 </head>
+
 <body>
-    <nav th:fragment="nav" class="navbar navbar-expand-lg " style="background-color: #161D6F; color: aliceblue;">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/">                    Home                     <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/Cliente/show">        Clientes                 <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/TipoMasaje/show">     Tipo de masajes          <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/Problema/show">         Problemas físicos        <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/TipoIdentificacion/show">Tipo de identificación  <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-      <br>
     <div style="text-align: center;" class="row">
         <div class="col-6 offset-md-3">
             <div class="card text-white bg-primary">
-            <img class="card-img-top" src="holder.js/100px180/" alt="">
-            <div class="card-body">
-                <h4 class="card-title">Carelly</h4>
-            </div>
+                <img class="card-img-top" src="holder.js/100px180/" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Carelly</h4>
+                </div>
             </div>
         </div>
     </div>
     <div style="text-align: center;" class="row">
         <div class="col-6 offset-md-3">
             <div class="card text-white">
-            <div class="card-body">
-                <img src="https://i.pinimg.com/originals/bf/d8/76/bfd876d446ca64689bdf6b992b23df37.jpg" class="img-fluid" alt="...">
-            </div>
+                <div class="card-body">
+                    <img src="https://i.pinimg.com/originals/bf/d8/76/bfd876d446ca64689bdf6b992b23df37.jpg" class="img-fluid" alt="...">
+                </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

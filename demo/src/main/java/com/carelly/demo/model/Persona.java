@@ -14,7 +14,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
-
 public class Persona {
 
 // <editor-fold desc="Atributos">

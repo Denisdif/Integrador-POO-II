@@ -61,5 +61,18 @@ public class TurnoServiceImp implements ITurnoService{
         //Retornar lista con DTOs
         return listTurnoDto;
     }
+
+    @Override
+    public List<TurnoDto> getSolicitudes() {
+        //Obtener una lista con objetos de tipo Entidad de la Base de datos
+        List<Turno> listTurnoEntity = turnoJpaRepository.findByHabilitado(null);
+
+        //Mapear los objetos del tipo Entidad en una lista de DTOs  
+        List<TurnoDto> listTurnoDto = listTurnoEntity.stream().map(turno -> modelMapper.
+            map(turno, TurnoDto.class)).collect(Collectors.toList());
+        
+        //Retornar lista con DTOs
+        return listTurnoDto;
+    }
     
 }
