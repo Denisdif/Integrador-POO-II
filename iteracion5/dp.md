@@ -8,22 +8,7 @@ Trabajos realizados por cada integrante:
 # Diseño OO
 ![Diagrama de clases](img/clases.jpeg)
 
-# Wireframes y casos de uso
-## Wireframes
-**Pantalla de inicio de sesión**
-![Wireframe](img/1.png)
 
-## Casos de uso
-
-### Iniciar sesión
-* El usuario ingresa a la página principal de la aplicación utilizando un navegador web.
-* Se le presentará al usuario el formulario para iniciar sesión o registrarse.
-* Si el usuario tiene una cuenta creada y validada, debe ingresar su nombre de usuario y contraseña, e iniciar sesión (*haciendo click en el botón "Iniciar sesión"*).
-* Si el usuario no tiene una cuenta creada, puede crearse una cuenta haciendo click en el botón "Registrarse" que se verá debajo del botón para iniciar sesión.
-* Si ingresa los datos correctamente y se verifica la existencia de la cuenta, entonces el usuario será redirigido a la página principal.
-* Se le presentará un formulario donde deberá completar sus datos personales antes de poder solicitar un turno.
-* Cuando finalice la carga de datos, podrá guardar los cambios dando click en el botón *"Guardar"*.
-* Una vez registrada correctamente la cuenta del usuario y con sus datos personales completos, el usuario podrá solicitar una reserva de turno.
 
   
 # Backlog de iteraciones
