@@ -22,6 +22,9 @@
                     </div>
                     <div class="card-body">
                         <form id="form" th:action="@{/Problema/save}" method="POST" th:object="${form}">
+                            <!-- Campos hidden id -->
+                            <input hidden type="text" name="id" th:field="*{problema.id}" th:value="*{problema != null} ? *{problema.id}">
+
                             <!-- Nombre -->
                             <div class="form-group">
                                 <label for="">Nombre:</label>

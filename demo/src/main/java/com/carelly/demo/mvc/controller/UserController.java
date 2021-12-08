@@ -83,12 +83,14 @@ public class UserController {
 
     @PostMapping("/save")
     public ModelAndView save(UserForm form) {
-        //Se ejecuta el create del servicio pasando como parametro el objeto almacenado en el form
-        List<Rol> clienteRoles = new ArrayList<>();
-        clienteRoles.add(rolRepo.findByRol("CLIENTE"));
 
-        form.getUser().setPassword(encoder.encode(form.getUser().getPassword()));
-        form.getUser().setRoles(clienteRoles);
+        //Se asigna el rol de cliente cuando se crea el usuario
+        if (form.getUser().getRoles() == null) {
+            List<Rol> clienteRoles = new ArrayList<>();
+            clienteRoles.add(rolRepo.findByRol("CLIENTE"));
+            form.getUser().setRoles(clienteRoles);
+        } 
+        form.getUser().setPassword(encoder.encode(form.getPass()));
         user.create(form.getUser());
 
         //Se retorna la vista principal del objeto

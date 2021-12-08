@@ -8,13 +8,12 @@ import javax.persistence.Id;
 
 @Entity
 public class Rol {
-
     // <editor-fold desc="Atributos">
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
 
-        @Column
+        @Column(length = 30, nullable = false, unique = true)
         private String rol;
     // </editor-fold>
 

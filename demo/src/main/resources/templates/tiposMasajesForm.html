@@ -1,47 +1,73 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <head th:replace="/layout :: head">  </head>
-  <title>Tipo de Masaje</title>
+
+    <head th:replace="/layout :: head"> </head>
+    <title>Tipo de Masaje</title>
 </head>
-<body > 
-  <nav th:replace="/layout :: nav"></nav>
-  <div class="container-fluid">
-    <div class="row">
-        <div class=" offset-md-2 col-sm-8">
-            <div class="card">
-                <div class="card-header">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span id="card_title">
+
+<body>
+    <nav th:replace="/layout :: nav"></nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" offset-md-2 col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span id="card_title">
                           <b>Tipos de masajes</b>
                         </span>
+                        </div>
                     </div>
-                </div>
-                <div class="card-body">
-                  <form id="form" th:action="@{/TipoMasaje/save}" method="POST" th:object="${form}">
-                      <!-- Nombre -->
-                      <div class="form-group">
-                          <label for="">Nombre:</label>
-                          <input type="text" class="form-control" placeholder="Nombre del masaje" th:field="*{tipoMasaje.tipoMasaje}">
-                      </div>
-                      <!-- Descripción -->
-                      <div class="form-group">
-                          <label for="">Descripción:</label>
-                          <textarea class="form-control rounded-0"  rows="3" placeholder="Descripción del masaje" th:field="*{tipoMasaje.descripcionMasaje}"></textarea>
-                      </div>
-                      <!-- Botones -->
-                      <div style="text-align: right;">
-                          <button  type="submit" class="btn btn-primary">Cargar</button>
-                          <a class="btn btn-danger" href="javascript:history.back()">Cancelar</a>
-                      </div>
-                    </form>
+                    <div class="card-body">
+                        <form id="form" th:action="@{/TipoMasaje/save}" method="POST" th:object="${form}">
+                            <div class="row form-group">
+                                <!-- Campos hidden id -->
+                                <input hidden type="text" name="id" th:field="*{tipoMasaje.id}" th:value="*{tipoMasaje != null} ? *{tipoMasaje.id}">
+
+                                <!-- Nombre -->
+                                <div class="col">
+                                    <label for="">Nombre:</label>
+                                    <input type="text" class="form-control" placeholder="Nombre del masaje" th:field="*{tipoMasaje.tipoMasaje}">
+                                </div>
+
+                                <!-- Tiempo -->
+                                <div class="col">
+                                    <label for="">Tiempo de duración:</label>
+                                    <input type="number" class="form-control" placeholder="Duración en minutos" th:field="*{tipoMasaje.tiempo}">
+                                </div>
+
+                            </div>
+                            <!-- Descripción -->
+                            <div class="form-group">
+                                <label for="">Descripción:</label>
+                                <textarea class="form-control rounded-0" rows="3" placeholder="Descripción del masaje" th:field="*{tipoMasaje.descripcionMasaje}"></textarea>
+                            </div>
+
+                            <!-- Disponible -->
+                            <div class="form-group">
+                                <label for="">Disponible:</label>
+                                <select class="form-control rounded-0" th:field="*{tipoMasaje.disponible}">
+                                    <option value=true selected>Si</option>
+                                    <option value=false>No</option>
+                                </select>
+                            </div>
+
+                            <!-- Botones -->
+                            <div style="text-align: right;">
+                                <button type="submit" class="btn btn-primary">Cargar</button>
+                                <a class="btn btn-danger" href="javascript:history.back()">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<footer th:replace="/layout :: footer"></footer>
+    <footer th:replace="/layout :: footer"></footer>
 
 </body>
+
 </html>

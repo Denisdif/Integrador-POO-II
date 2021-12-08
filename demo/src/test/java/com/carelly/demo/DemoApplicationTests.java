@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.carelly.demo.model.Rol;
+import com.carelly.demo.model.TipoMasaje;
 import com.carelly.demo.model.User;
 import com.carelly.demo.repository.IRolJpaRepository;
+import com.carelly.demo.repository.ITipoMasajeRepository;
 import com.carelly.demo.repository.IUserJpaRepository;
 
 import org.junit.jupiter.api.Test;
@@ -25,25 +27,27 @@ class DemoApplicationTests {
 	@Autowired
 	private IRolJpaRepository rolRepo;
 
+	@Autowired
+    ITipoMasajeRepository tipoRepo;
+
 	@Test
 	public void crearUserTest() {
+		rolRepo.save(new Rol("ADMIN"));
+		rolRepo.save(new Rol("CLIENTE"));
+
 		List<Rol> adminRoles = new ArrayList<>();
         adminRoles.add(rolRepo.findByRol("ADMIN"));
 
 		List<Rol> clienteRoles = new ArrayList<>();
         clienteRoles.add(rolRepo.findByRol("CLIENTE"));
 
-		User admin = new User();
-		admin.setName("admin");
-		admin.setPassword(encoder.encode("12345"));
-		admin.setRoles(adminRoles);
+		User admin = new User("admin",encoder.encode("12345"),adminRoles);
+		User cliente = new User("cliente",encoder.encode("12345"),clienteRoles);
 
-		User cliente = new User();
-		cliente.setName("cliente");
-		cliente.setPassword(encoder.encode("12345"));
-		cliente.setRoles(clienteRoles);
-
-		userRepo.save(cliente);
 		userRepo.save(admin);
+		userRepo.save(cliente);
+
+		TipoMasaje masaje = new TipoMasaje("Masaje para contracturas", "Este tipo de masaje se enfoca en eliminar contracturas musculares", 60, true);
+		tipoRepo.save(masaje);
 	}
 }

@@ -2,13 +2,10 @@ package com.carelly.demo.mvc.controller;
 
 import java.util.HashMap;
 
-import com.carelly.demo.dto.ClienteDto;
 import com.carelly.demo.dto.PersonaDto;
 import com.carelly.demo.dto.UserDto;
 import com.carelly.demo.model.Persona;
-import com.carelly.demo.model.User;
-import com.carelly.demo.mvc.form.ClienteForm;
-import com.carelly.demo.service.IClienteService;
+import com.carelly.demo.mvc.form.PersonaForm;
 import com.carelly.demo.service.IPersonaService;
 import com.carelly.demo.service.IProblemaService;
 import com.carelly.demo.service.ITipoIdentificacionService;
@@ -25,16 +22,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/Cliente")
-public class ClienteController {
+@RequestMapping("/Persona")
+public class PersonaController {
     @Autowired
     ITipoIdentificacionService tipo;
 
     @Autowired
     IProblemaService problema;
-
-    @Autowired
-    IClienteService cliente;
 
     @Autowired
     IPersonaService persona;
@@ -51,14 +45,14 @@ public class ClienteController {
         var params = new HashMap<String, Object>();
 
         //Se genera una lista con todos los objetos
-        params.put("list", cliente.getAll());
+        params.put("list", persona.getAll());
 
         //Se retorna la vista con la lista de objetos
-        return new ModelAndView("clienteIndex", params);
+        return new ModelAndView("personaIndex", params);
     }
 
     @GetMapping("/new")
-    public ModelAndView newCliente() {
+    public ModelAndView newPersona() {
         //Se genera un objeto para almacenar datos
         var params = new HashMap<String, Object>();
 
@@ -66,10 +60,9 @@ public class ClienteController {
         UserDto userDto = user.get(nombre);
         if (userDto.getPersona()== null) {
             //Se genera un objeto form para almacenar datos
-            ClienteForm form = new ClienteForm();
+            PersonaForm form = new PersonaForm();
 
             //Se asigna al objeto form los datos para la carga 
-            form.setCliente(new ClienteDto());
             form.setPersona(new PersonaDto());
             form.setTipos(tipo.getAll());
             form.setProblemasAll(problema.getAll());
@@ -78,9 +71,9 @@ public class ClienteController {
             params.put("form", form);
 
             //Se retorna la vista del formulario con el params
-            return new ModelAndView("clienteForm", params);
+            return new ModelAndView("personaCreate", params);
         } else {
-            ClienteForm form = new ClienteForm();
+            PersonaForm form = new PersonaForm();
 
             //Se asigna al objeto form los datos para la carga 
             form.setPersona(persona.get(userDto.getPersona().getId())); //Se asigna la persona que pertenece al cliente que se paso como parametro
@@ -89,31 +82,44 @@ public class ClienteController {
     
             params.put("form", form);
     
-            return new ModelAndView("clienteForm", params);
+            return new ModelAndView("personaCreate", params);
         
         }
+
+    }
+
+    @GetMapping(value = "/datos/{id}")
+    public ModelAndView datos(@ModelAttribute("id") Long id) {
+        var params = new HashMap<String, Object>();
+        PersonaForm form = new PersonaForm();
+
+        //Se asigna al objeto form los datos para la carga 
+        form.setPersona(persona.get(id)); //Se asigna la persona que pertenece al cliente que se paso como parametro
+
+        params.put("form", form);
+
+        return new ModelAndView("personaShow", params);
 
     }
 
     @GetMapping(value = "/edit/{id}")
     public ModelAndView edit(@ModelAttribute("id") Long id) {
         var params = new HashMap<String, Object>();
-        ClienteForm form = new ClienteForm();
+        PersonaForm form = new PersonaForm();
 
         //Se asigna al objeto form los datos para la carga 
-        form.setCliente(cliente.get(id));
-        form.setPersona(persona.get(cliente.get(id).getPersona().getId())); //Se asigna la persona que pertenece al cliente que se paso como parametro
+        form.setPersona(persona.get(id)); //Se asigna la persona que pertenece al cliente que se paso como parametro
         form.setTipos(tipo.getAll());
         form.setProblemasAll(problema.getAll());
 
         params.put("form", form);
 
-        return new ModelAndView("clienteForm", params);
+        return new ModelAndView("personaCreate", params);
 
     }
 
     @PostMapping("/save")
-    public ModelAndView save(ClienteForm form) {
+    public ModelAndView save(PersonaForm form) {
         //Se almacenan los datos de Persona
         PersonaDto personaDto = persona.create(form.getPersona());
 
@@ -122,7 +128,7 @@ public class ClienteController {
         userDto.setPersona(modelMapper.map(personaDto, Persona.class));
         user.create(userDto);
 
-        return new ModelAndView("redirect:/Cliente/show");
+        return new ModelAndView("redirect:/Persona/show");
     }
 
 }

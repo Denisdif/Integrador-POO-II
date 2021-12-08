@@ -9,10 +9,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ITipoIdentificacionJpaRepository extends JpaRepository<TipoIdentificacion,Long>{
-    //select fields from TipoIdentificacion where id='[parametro]'
-    //TipoIdentificacion findByid(String id);
     Optional<TipoIdentificacion> findByTipoIdentificacion(String tipo);
-    
     @Cacheable(value = "tiposIdentificacion")
     List<TipoIdentificacion> findAll();
 }

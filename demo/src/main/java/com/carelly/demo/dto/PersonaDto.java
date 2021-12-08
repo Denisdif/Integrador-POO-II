@@ -16,6 +16,7 @@ public class PersonaDto {
     private String telefono;
     private String email;
     private String direccion;
+    private String observaciones;
     private TipoIdentificacion tipoIdentificacion;
     private List<Problema> problemas = new ArrayList<Problema>();
 // </editor-fold>
@@ -23,9 +24,9 @@ public class PersonaDto {
 // <editor-fold desc="Constructores">
     public PersonaDto() {
     }
-
+    
     public PersonaDto(String nombre, String apellido, String identificacion, String sexo, String telefono, String email,
-            String direccion, TipoIdentificacion tipoIdentificacion) {
+    String direccion, String observaciones, TipoIdentificacion tipoIdentificacion, List<Problema> problemas) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.identificacion = identificacion;
@@ -33,11 +34,14 @@ public class PersonaDto {
         this.telefono = telefono;
         this.email = email;
         this.direccion = direccion;
+        this.observaciones = observaciones;
         this.tipoIdentificacion = tipoIdentificacion;
-    }
+        this.problemas = problemas;
+        }
+
 // </editor-fold>
 
-// <editor-fold desc="Getters and Setters">
+    // <editor-fold desc="Getters and Setters">
     public Long getId() {
         return id;
     }
@@ -110,6 +114,14 @@ public class PersonaDto {
         this.direccion = direccion;
     }
 
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+    
     public List<Problema> getProblemas() {
         return problemas;
     }
@@ -118,5 +130,4 @@ public class PersonaDto {
         this.problemas = problemas;
     }
 // </editor-fold>
-
 }

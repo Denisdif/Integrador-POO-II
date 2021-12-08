@@ -9,6 +9,7 @@ import com.carelly.demo.service.IProblemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,6 +43,24 @@ public class ProblemaController {
 
         //Se asigna al objeto form el valor de el nuevo objeto a cargar 
         form.setProblema(new ProblemaDto());
+
+        //Se añade a params el form generado anteriormente
+        params.put("form", form);
+
+        //Se retorna la vista del formulario con el params
+        return new ModelAndView("problemasCreate", params);
+    }
+    
+    @GetMapping(value = "/edit/{id}")
+    public ModelAndView edit(@ModelAttribute("id") Long id) {
+        //Se genera un objeto para almacenar datos
+        var params = new HashMap<String, Object>();
+
+        //Se genera un objeto form para almacenar datos
+        ProblemaForm form = new ProblemaForm();
+
+        //Se asigna al objeto form el valor de el nuevo objeto a cargar 
+        form.setProblema(problema.get(id));
 
         //Se añade a params el form generado anteriormente
         params.put("form", form);

@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.carelly.demo.model.Persona;
 import com.carelly.demo.model.Rol;
-
 public class UserDto {
+
     // <editor-fold desc="Atributos">
         private Long id;
         private String name;
@@ -56,6 +56,15 @@ public class UserDto {
         }
         public void setRoles(List<Rol> roles) {
             this.roles = roles;
+        }
+        public Boolean hasRole(Rol rol) {
+            Boolean retorno = false;
+            for (Rol aux : this.getRoles()) {
+                if (aux == rol) {
+                    retorno = true;
+                }
+            }
+            return retorno;
         }
     // </editor-fold>
 

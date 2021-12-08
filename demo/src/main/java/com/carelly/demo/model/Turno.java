@@ -1,6 +1,7 @@
 package com.carelly.demo.model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -93,6 +94,30 @@ public class Turno {
 
     public void setHabilitado(Boolean habilitado) {
         this.habilitado = habilitado;
+    }
+// </editor-fold>
+
+// <editor-fold desc="Otros Métodos">
+
+    //Get fecha fin
+    public Date getFinalizacion() {
+
+        Calendar calendar = Calendar.getInstance();
+        
+        calendar.setTime(this.getFecha()); // Configuramos la fecha que se recibe
+        
+        calendar.add(Calendar.MINUTE, this.getDuracion());  // numero de horas a añadir, o restar en caso de horas<0
+
+        return calendar.getTime(); // Devuelve el objeto Date con las nuevas horas añadidas	
+    }
+
+    //Get duración (Suma de todos los tipos de masaje más el inicio)
+    public Integer getDuracion() {
+        Integer duracion = 0;
+        for (TipoMasaje tipoMasaje : this.tipoMasajes) {
+            duracion += tipoMasaje.getTiempo();
+        }
+        return duracion; 
     }
 // </editor-fold>
 

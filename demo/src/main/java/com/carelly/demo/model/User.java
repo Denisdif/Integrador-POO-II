@@ -15,16 +15,15 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class User {
-
     // <editor-fold desc="Atributos">
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
 
-        @Column
+        @Column(length = 50, nullable = false, unique = true)
         private String name;
 
-        @Column
+        @Column(nullable = false)
         private String password;
 
         @ManyToOne(optional = true)

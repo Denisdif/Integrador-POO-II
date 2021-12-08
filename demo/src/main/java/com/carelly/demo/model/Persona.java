@@ -30,7 +30,7 @@ public class Persona {
     @Column(length = 20, nullable = false)
     private String identificacion;
 
-    @Column(length = 20, nullable = true)
+    @Column(length = 20, nullable = false)
     private String sexo;
 
     @Column(length = 12, nullable = false)
@@ -39,8 +39,11 @@ public class Persona {
     @Column(length = 50, nullable = true)
     private String email;
 
-    @Column(length = 255, nullable = true)
+    @Column(nullable = true)
     private String direccion;
+
+    @Column(nullable = true)
+    private String observaciones;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_tipoIdent")
@@ -59,7 +62,7 @@ public class Persona {
     }
 
     public Persona(String nombre, String apellido, String identificacion, String sexo, String telefono, String email,
-            String direccion, TipoIdentificacion tipoIdentificacion) {
+            String direccion, String observaciones, TipoIdentificacion tipoIdentificacion, List<Problema> problemas) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.identificacion = identificacion;
@@ -67,11 +70,14 @@ public class Persona {
         this.telefono = telefono;
         this.email = email;
         this.direccion = direccion;
+        this.observaciones = observaciones;
         this.tipoIdentificacion = tipoIdentificacion;
+        this.problemas = problemas;
     }
+
 // </editor-fold>
 
-// <editor-fold desc="Getters and Setters">
+    // <editor-fold desc="Getters and Setters">
     public Long getId() {
         return id;
     }
@@ -150,6 +156,14 @@ public class Persona {
 
     public void setProblemas(List<Problema> problemas) {
         this.problemas = problemas;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
     // </editor-fold>
 

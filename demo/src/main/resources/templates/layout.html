@@ -19,7 +19,7 @@
                     <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/">                    Home                     <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active" sec:authorize="hasAnyAuthority('ADMIN')">
-                    <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/Cliente/show">        Clientes                 <span class="sr-only">(current)</span></a>
+                    <a style=" color: aliceblue;" class="nav-link" href="http://localhost:8080/Persona/show">        Personas                 <span class="sr-only">(current)</span></a>
                 </li>
                 <!-- 
                 <li class="nav-item active" sec:authorize="hasAnyAuthority('ADMIN')">
@@ -27,6 +27,12 @@
                 </li>-->
                 <li class="nav-item active" sec:authorize="hasAnyAuthority('ADMIN')">
                     <a style=" color: aliceblue;" class="nav-link" th:href="@{/Turno/show}">Turnos  <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active" sec:authorize="hasAnyAuthority('ADMIN')">
+                    <a style=" color: aliceblue;" class="nav-link" th:href="@{/Turno/solicitudes}">Solicitudes  <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active" sec:authorize="hasAnyAuthority('CLIENTE')">
+                    <a style=" color: aliceblue;" class="nav-link" th:href="@{/Turno/misTurnos}">Mis turnos  <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active" sec:authorize="hasAnyAuthority('CLIENTE')">
                     <a style=" color: aliceblue;" class="nav-link" th:href="@{/Turno/new}">Solicitar turno  <span class="sr-only">(current)</span></a>
@@ -51,7 +57,7 @@
                 <span sec:authentication="name"></span>
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" th:href="@{/Cliente/new}">Editar datos personales</a>
+                <a class="dropdown-item" th:href="@{/Persona/new}">Editar datos personales</a>
                 <a class="dropdown-item" th:href="@{/User/edit}">Cambiar contraseña</a>
                 <form th:action="@{/logout}" method="post">
                     <button class="dropdown-item">Cerrar Sesión</button>

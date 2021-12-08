@@ -24,7 +24,7 @@ public class TipoMasajeJpaRepositoryTest {
     // @Order(1)
     public void createTipoMasaje() {
 
-        TipoMasaje tipo = new TipoMasaje("Masaje para contracturas", "Este tipo de masaje se enfoca en eliminar contracturas musculares");
+        TipoMasaje tipo = new TipoMasaje("Masaje para contracturas", "Este tipo de masaje se enfoca en eliminar contracturas musculares", 60, true);
         repo.save(tipo);
         Assertions.assertThat(tipo.getId()).isGreaterThan(0);
     }   

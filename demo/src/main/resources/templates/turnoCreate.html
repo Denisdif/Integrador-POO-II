@@ -14,7 +14,7 @@
     <nav th:replace="/layout :: nav"></nav>
     <div class="container-fluid">
         <div class="row">
-            <div class=" offset-md-2 col-sm-8">
+            <div class="offset-md-1 col-sm-6">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -25,9 +25,14 @@
                     </div>
                     <div class="card-body">
                         <form id="form" th:action="@{/Turno/save}" method="POST" th:object="${form}">
+                            <!-- Campos hidden id -->
+                            <input hidden type="text" th:field="*{turno.id}" th:value="*{turno != null} ? *{turno.id}">
+                            <input hidden type="text" th:field="*{turno.persona}" th:value="*{turno != null} ? *{turno.persona}">
+                            <input hidden type="text" th:field="*{turno.habilitado}" th:value="*{turno != null} ? *{turno.habilitado}">
+
                             <!-- Fecha -->
                             <div class="row form-group">
-                                <div class="col-6">
+                                <div class="col">
                                     <label for="">Fecha:</label>
                                     <input type="datetime-local" class="form-control" th:field="*{fecha}">
                                 </div>
@@ -35,12 +40,12 @@
 
                             <!-- Masajes -->
                             <div class="row form-group">
-                                <div class="col-6">
+                                <div class="col">
                                     <label for="">Masajes:</label>
                                     <select class="form-control js-basic-multiple" th:object="${form}" th:field="*{turno.tipoMasajes}" multiple="multiple">
                                     <option th:each="Item: *{tipoMasaje}"
                                           th:value="${Item.id}"
-                                          th:utext="${Item.tipoMasaje}">
+                                          th:utext="${Item.tipoMasaje} + ' (' + ${Item.tiempo} + 'min) '">
                                   </select>
                                 </div>
                             </div>
@@ -51,6 +56,37 @@
                                 <a class="btn btn-danger" href="javascript:history.back()">Cancelar</a>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span id="card_title">
+                            <b>Horarios ocupados</b>
+                          </span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Desde </th>
+                                        <th>Hasta </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="turno: ${list}">
+                                        <td th:text="${turno.fecha}">
+                                        </td>
+                                        <td th:text="${turno.getFinalizacion()}">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

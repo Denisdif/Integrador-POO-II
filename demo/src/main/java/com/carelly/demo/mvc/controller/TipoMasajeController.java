@@ -51,18 +51,30 @@ public class TipoMasajeController {
         return new ModelAndView("tiposMasajesForm", params);
     }
 
+    @GetMapping(value = "/edit/{id}")
+    public ModelAndView edit(@ModelAttribute("id") Long id) {
+        //Se genera un objeto para almacenar datos
+        var params = new HashMap<String, Object>();
+
+        //Se genera un objeto form para almacenar datos
+        TipoMasajeForm form = new TipoMasajeForm();
+
+        //Se asigna al objeto form el valor de el nuevo objeto a cargar 
+        form.setTipoMasaje(tipoMasaje.get(id));
+
+        //Se añade a params el form generado anteriormente
+        params.put("form", form);
+
+        //Se retorna la vista del formulario con el params
+        return new ModelAndView("tiposMasajesForm", params);
+    }
+
     @PostMapping("/save")
     public ModelAndView save(TipoMasajeForm form) {
         //Se ejecuta el create del servicio pasando como parametro el objeto almacenado en el form
         tipoMasaje.create(form.getTipoMasaje());
 
         //Se retorna la vista principal del objeto
-        return new ModelAndView("redirect:/TipoMasaje/show");
-    }
-
-    @GetMapping(value = "/delete/{id}")
-    public ModelAndView delete(@ModelAttribute("id") Long id) {
-        tipoMasaje.delete(id);
         return new ModelAndView("redirect:/TipoMasaje/show");
     }
 }

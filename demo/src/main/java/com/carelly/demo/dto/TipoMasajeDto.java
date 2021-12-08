@@ -5,16 +5,19 @@ public class TipoMasajeDto {
     private Long id;
     private String tipoMasaje;
     private String descripcionMasaje;
+    private Integer tiempo;
+    private Boolean disponible;
 // </editor-fold>
-
 
 // <editor-fold desc="Constructores">
     public TipoMasajeDto() {
     }
 
-    public TipoMasajeDto(String tipoMasaje, String descripcionMasaje) {
+    public TipoMasajeDto(String tipoMasaje, String descripcionMasaje, Integer tiempo, boolean disp) {
         this.tipoMasaje = tipoMasaje;
         this.descripcionMasaje = descripcionMasaje;
+        this.tiempo = tiempo;
+        this.disponible = true;
     }
 // </editor-fold>
 
@@ -25,6 +28,22 @@ public class TipoMasajeDto {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(Integer tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    public Boolean getDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(Boolean disponible) {
+        this.disponible = disponible;
     }
 
     public String getTipoMasaje() {

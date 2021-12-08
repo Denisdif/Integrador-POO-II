@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-
 public class TipoIdentificacion {
 
 // <editor-fold desc="Atributos">
@@ -15,7 +14,7 @@ public class TipoIdentificacion {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(length = 25,nullable = false)
+    @Column(length = 30,nullable = false)
     private String tipoIdentificacion;
 // </editor-fold>
 

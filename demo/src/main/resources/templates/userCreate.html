@@ -22,6 +22,9 @@
                     </div>
                     <div class="card-body">
                         <form id="form" th:action="@{/User/save}" method="POST" th:object="${form}">
+                            <!-- Campos hidden id -->
+                            <input hidden type="text" name="id" th:field="*{user.id}" th:value="*{user != null} ? *{user.id}">
+
                             <!-- Nombre -->
                             <div class="form-group">
                                 <label for="">Nombre:</label>
@@ -31,7 +34,19 @@
                             <!-- Contraseña -->
                             <div class="form-group">
                                 <label for="">Contraseña:</label>
-                                <input type="text" class="form-control" placeholder="Contraseña" th:field="*{user.password}">
+                                <input type="text" class="form-control" required minlength="8" placeholder="Contraseña" th:field="*{pass}">
+                            </div>
+
+                            <!-- Roles -->
+                            <div class="row form-group" hidden>
+                                <div class="col-6">
+                                    <label for="">Rol:</label>
+                                    <select class="form-control js-basic-multiple" th:object="${form}" th:field="*{user.roles}" multiple="multiple">
+                                    <option th:each="Item: *{user.roles}"
+                                            th:value="${Item.id}"
+                                            th:utext="${Item.rol}">
+                                    </select>
+                                </div>
                             </div>
 
                             <!-- Botones -->

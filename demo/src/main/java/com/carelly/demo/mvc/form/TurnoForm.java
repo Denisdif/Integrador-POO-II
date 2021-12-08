@@ -2,13 +2,11 @@ package com.carelly.demo.mvc.form;
 
 import java.util.List;
 
-import com.carelly.demo.dto.ClienteDto;
 import com.carelly.demo.dto.TipoMasajeDto;
 import com.carelly.demo.dto.TurnoDto;
 
 public class TurnoForm {
     private TurnoDto turno;
-    private List<ClienteDto> cliente;
     private List<TipoMasajeDto> tipoMasaje;
     private String fecha;
 
@@ -23,12 +21,6 @@ public class TurnoForm {
     }
     public void setTipoMasaje(List<TipoMasajeDto> tipoMasaje) {
         this.tipoMasaje = tipoMasaje;
-    }
-    public List<ClienteDto> getCliente() {
-        return cliente;
-    }
-    public void setCliente(List<ClienteDto> cliente) {
-        this.cliente = cliente;
     }
     public String getFecha() {
         return fecha;

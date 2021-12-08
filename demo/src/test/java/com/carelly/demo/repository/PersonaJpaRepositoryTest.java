@@ -35,7 +35,7 @@ public class PersonaJpaRepositoryTest {
 
         TipoIdentificacion tipo = repoTipoId.findById(9L).get();
         Persona persona = new Persona("Juan", "Pérez", "40555222", "Masculino", "15457898", 
-                        "juan@mail.com", "Posadas", tipo);
+                        "juan@mail.com", "Posadas", null, tipo, null);
 
         repo.save(persona);
         Assertions.assertThat(persona.getId()).isGreaterThan(0);

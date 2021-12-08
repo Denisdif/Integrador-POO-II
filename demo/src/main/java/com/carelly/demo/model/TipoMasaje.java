@@ -17,11 +17,17 @@ public class TipoMasaje {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(length = 50,nullable = false)
+    @Column(length = 30,nullable = false)
     private String tipoMasaje;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String descripcionMasaje;
+
+    @Column(nullable = false)
+    private Integer tiempo;
+
+    @Column(nullable = false)
+    private Boolean disponible;
 // </editor-fold>
 
 
@@ -29,15 +35,33 @@ public class TipoMasaje {
     public TipoMasaje() {
     }
 
-    public TipoMasaje(String tipoMasaje, String descripcionMasaje) {
+    public TipoMasaje(String tipoMasaje, String descripcionMasaje, Integer tiempo, boolean disp) {
         this.tipoMasaje = tipoMasaje;
         this.descripcionMasaje = descripcionMasaje;
+        this.tiempo = tiempo;
+        this.disponible = true;
     }
 // </editor-fold>
 
 // <editor-fold desc="Getters and Setters">
     public Long getId() {
         return id;
+    }
+
+    public Integer getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(Integer tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    public Boolean getDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(Boolean disponible) {
+        this.disponible = disponible;
     }
 
     public void setId(Long id) {

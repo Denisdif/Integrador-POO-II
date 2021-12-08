@@ -21,13 +21,8 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <span id="card_title">
-                                <b>Turnos</b> 
+                                <b>Mis turnos</b> 
                             </span>
-                            <div class="float-right">
-                                <a href="http://localhost:8080/Turno/new" class="btn btn-primary btn-sm float-right" data-placement="left">
-                                  Cargar nuevo
-                                </a>
-                            </div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -37,7 +32,9 @@
                                     <tr>
                                         <th>Nro turno </th>
                                         <th>Cliente </th>
-                                        <th>Fecha </th>
+                                        <th>Inicio </th>
+                                        <th>Fin </th>
+                                        <th>Habilitado </th>
                                         <th>Acción </th>
                                     </tr>
                                 </thead>
@@ -49,9 +46,14 @@
                                         </td>
                                         <td th:text="${turno.fecha}">
                                         </td>
+                                        <td th:text="${turno.getFinalizacion()}">
+                                        </td>
+                                        <td th:text="${turno.habilitado}">
+                                        </td>
                                         <td>
+                                            <a class="btn btn-sm btn-primary" th:href="@{edit/} + ${turno.id}"> Editar</a>
                                             <a class="btn btn-sm btn-success" sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{habilitar/} + ${turno.id}"> Habilitar</a>
-                                            <a class="btn btn-sm btn-danger " href=""> Cancelar</a>
+                                            <a class="btn btn-sm btn-danger " sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{deshabilitar/} + ${turno.id}"> Cancelar</a>
                                         </td>
                                     </tr>
                                 </tbody>

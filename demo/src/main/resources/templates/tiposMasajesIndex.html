@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <head th:replace="/layout :: head"></head>
     <title>Tipo de Masaje</title>
 </head>
 
-<body >
+<body>
     <nav th:replace="/layout :: nav"></nav>
     <div class="row">
         <div class="offset-md-2 col-sm-8">
-            <div class="card" >
+            <div class="card">
                 <div class="card-header">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <span id="card_title">
                           <b>Tipos de masajes</b>
                         </span>
-                         <div class="float-right">
-                            <a href="http://localhost:8080/TipoMasaje/new" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                        <div class="float-right">
+                            <a href="http://localhost:8080/TipoMasaje/new" class="btn btn-primary btn-sm float-right" data-placement="left">
                               Cargar nuevo
                             </a>
-                          </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -33,14 +35,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                              <tr th:each="tipoMasaje: ${list}">
-                                <td th:text="${tipoMasaje.tipoMasaje}">
-                                </td>
-                                <td th:text="${tipoMasaje.descripcionMasaje}">
-                                </td>
-                                <td>
-                                    <a class="btn btn-sm btn-danger " th:href="@{delete/} + ${tipoMasaje.id}"> Eliminar</a>
-                                </td>
+                                <tr th:each="tipoMasaje: ${list}">
+                                    <td th:text="${tipoMasaje.tipoMasaje}">
+                                    </td>
+                                    <td th:text="${tipoMasaje.descripcionMasaje}">
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-sm btn-success" th:href="@{edit/} + ${tipoMasaje.id}"> Editar</a>
+                                    </td>
                             </tbody>
                         </table>
                     </div>
@@ -49,4 +51,6 @@
         </div>
     </div>
 </body>
+<footer th:replace="/layout :: footer"></footer>
+
 </html>
