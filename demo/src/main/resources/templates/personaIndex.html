@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <head th:replace="/layout :: head"> </head>
+    <title>Personas</title>
+</head>
+
+<body>
+    <nav th:replace="/layout :: nav"></nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" offset-md-2 col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span id="card_title">
+                              <b>Personas </b>
+                            </span>
+                            <!-- 
+                            <div class="float-right">
+                                <a href="http://localhost:8080/Persona/new" class="btn btn-primary btn-sm float-right" data-placement="left">
+                                Cargar nuevo
+                              </a>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead class="thead">
+                                    <tr>
+                                        <th>Nombre completo</th>
+                                        <th>Identificación</th>
+                                        <th>Teléfono</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Arreglo con personas -->
+                                    <tr th:each="persona: ${list}">
+                                        <td th:text="${persona.nombre} + ' ' + ${persona.apellido}">
+                                        </td>
+                                        <td th:text="${persona.tipoIdentificacion.tipoIdentificacion} + ' ' + ${persona.identificacion}">
+                                        </td>
+                                        <td th:text="${persona.telefono}">
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-sm btn-primary" th:href="@{datos/} + ${persona.id}"> Ver</a>
+                                            <a class="btn btn-sm btn-success" th:href="@{edit/} + ${persona.id}"> Editar</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="/layout :: footer"></footer>
+
+</body>
+
+</html>
