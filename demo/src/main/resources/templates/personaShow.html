@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <head th:replace="/layout :: head"> </head>
+    <title>Persona</title>
+    <style>
+        .datos {
+            /*text-decoration: underline;*/
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+    <nav th:replace="/layout :: nav"></nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" offset-md-2 col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span id="card_title">
+                              <b>Datos del paciente </b>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 200px;"><span>Nombre y apellido: </span></td>
+                                    <td><span class="datos" th:text="${form.persona.nombre} + ' ' + ${form.persona.apellido}"></span></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 200px;"><span>Identificación: </span></td>
+                                    <td><span class="datos" th:text="${form.persona.tipoIdentificacion.tipoIdentificacion} + ' ' + ${form.persona.identificacion}"></span></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 200px;"><span>Teléfono: </span></td>
+                                    <td><span class="datos" th:text="${form.persona.telefono}"></span></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 200px;"><span>Correo electrónico: </span></td>
+                                    <td><span class="datos" th:text="${form.persona.email}"></span></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 200px;"><span>Dirección: </span></td>
+                                    <td><span class="datos" th:text="${form.persona.direccion}"></span></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 200px;" colspan="2">
+                                        <span>Problemas físicos: </span><br>
+                                        <ul>
+                                            <li th:each="problema: ${form.persona.problemas}">
+                                                <span class="datos" th:text="${problema.problema}"></span>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 200px;"><span>Observaciones: </span></td>
+                                    <td><span class="datos" th:text="${form.persona.observaciones}"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer th:replace="/layout :: footer"></footer>
+
+</body>
+
+</html>
