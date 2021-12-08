@@ -6,6 +6,7 @@ import com.carelly.demo.dto.TurnoDto;
 
 public interface ITurnoService {
     public Boolean create(TurnoDto turno);
+    public TurnoDto createSinControl(TurnoDto turno);
     public TurnoDto get(Long id);
     public void delete(Long id);
     public List<TurnoDto> getAll();

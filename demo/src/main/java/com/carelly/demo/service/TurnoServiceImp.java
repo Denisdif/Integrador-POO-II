@@ -62,6 +62,19 @@ public class TurnoServiceImp implements ITurnoService{
     }
 
     @Override
+    //Guardar sin control (Para deshabilitar turnos)
+    public TurnoDto createSinControl(TurnoDto newTurno) {
+        //Creamos un objeto de la Entidad y le asignamos los valores del DTO que recibimos como parámetro
+        Turno turnoEntity = modelMapper.map(newTurno, Turno.class);
+
+        //Almacenar en Base de datos ese objeto con los datos cargados 
+        turnoEntity = turnoJpaRepository.save(turnoEntity); 
+
+        //Se retorna nuevamente el DTO mapeado con los datos almacenados
+        return modelMapper.map(turnoEntity, TurnoDto.class);
+    }
+
+    @Override
     public TurnoDto get(Long id) {
         //Obtener Entidad de base de datos y almacenarla en un objeto del tipo de la Entidad
         Turno turnoEntity = turnoJpaRepository.getOne(id);

@@ -168,7 +168,7 @@ public class TurnoController {
 
         TurnoDto turnoDto = turno.get(id);
         turnoDto.setHabilitado(false);
-        turno.create(turnoDto);
+        turno.createSinControl(turnoDto);
 
         return new ModelAndView("redirect:/Turno/show");
     }
