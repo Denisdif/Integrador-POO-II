@@ -62,4 +62,16 @@ public class TipoMasajeServiceImp implements ITipoMasajeService {
         return listTipoMasajeDto;
     }
     
+    @Override
+    public List<TipoMasajeDto> getAllHabilitados() {
+        //Obtener una lista con objetos de tipo Entidad de la Base de datos
+        List<TipoMasaje> listTipoMasajeEntity = tipoMasajeJpaRepository.findByDisponible(true);
+
+        //Mapear los objetos del tipo Entidad en una lista de DTOs  
+        List<TipoMasajeDto> listTipoMasajeDto = listTipoMasajeEntity.stream().map(tipoMasaje -> modelMapper.
+            map(tipoMasaje, TipoMasajeDto.class)).collect(Collectors.toList());
+        
+        //Retornar lista con DTOs
+        return listTipoMasajeDto;
+    }
 }

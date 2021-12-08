@@ -13,4 +13,5 @@ public interface ITipoMasajeRepository extends JpaRepository<TipoMasaje,Long>{
     Optional<TipoMasaje> findByTipoMasaje(String tipo);
     @Cacheable(value = "tiposMsajeTipoMasaje")
     List<TipoMasaje> findAll();
+    List<TipoMasaje> findByDisponible(Boolean disponible);
 }

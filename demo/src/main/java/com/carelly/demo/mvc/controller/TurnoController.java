@@ -99,7 +99,7 @@ public class TurnoController {
 
         //Se asigna al objeto form los datos para la carga 
         form.setTurno(new TurnoDto());
-        form.setTipoMasaje(tipoMasaje.getAll());
+        form.setTipoMasaje(tipoMasaje.getAllHabilitados());
 
         //Se añade a params el form generado anteriormente
         params.put("form", form);

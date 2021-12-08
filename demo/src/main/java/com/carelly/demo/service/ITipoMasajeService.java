@@ -7,4 +7,5 @@ public interface ITipoMasajeService {
     public TipoMasajeDto get(Long id);
     public void delete(Long id);
     public List<TipoMasajeDto> getAll();
+    public List<TipoMasajeDto> getAllHabilitados();
 }
