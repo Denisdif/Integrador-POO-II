@@ -2,6 +2,7 @@ package com.carelly.demo.mvc.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -77,11 +78,14 @@ public class TurnoController {
         //Obtener usuario logueado
         String nombre = (SecurityContextHolder.getContext().getAuthentication().getName());
 
-        //Creamos un objeto de la Entidad y le asignamos los valores del DTO que recibimos como parámetro
-        PersonaDto personaDto = modelMapper.map(user.get(nombre).getPersona(), PersonaDto.class);
-
-        //Se genera una lista con todos los objetos
-        params.put("list", turno.getMisTurnos(personaDto));
+        if (user.get(nombre).getPersona() != null ) {
+            //Creamos un objeto de la Entidad y le asignamos los valores del DTO que recibimos como parámetro
+            PersonaDto personaDto = modelMapper.map(user.get(nombre).getPersona(), PersonaDto.class);
+            //Se genera una lista con todos los objetos
+            params.put("list", turno.getMisTurnos(personaDto));
+        } else {
+            params.put("list", new ArrayList<>());
+        }
 
         //Se retorna la vista con la lista de objetos
         return new ModelAndView("turnoIndex", params);
