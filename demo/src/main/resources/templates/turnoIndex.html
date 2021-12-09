@@ -52,8 +52,6 @@
                                         </td>
                                         <td>
                                             <a class="btn btn-sm btn-primary" th:href="@{edit/} + ${turno.id}"> Editar</a>
-                                            <a class="btn btn-sm btn-success" sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{habilitar/} + ${turno.id}"> Habilitar</a>
-                                            <a class="btn btn-sm btn-danger " sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{deshabilitar/} + ${turno.id}"> Cancelar</a>
                                         </td>
                                     </tr>
                                 </tbody>

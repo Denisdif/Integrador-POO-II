@@ -34,7 +34,7 @@
                             <div class="row form-group">
                                 <div class="col">
                                     <label for="">Fecha:</label>
-                                    <input type="datetime-local" class="form-control" th:field="*{fecha}">
+                                    <input type="datetime-local" class="form-control" th:field="*{fecha}" th:min="${actual}" required>
                                 </div>
                             </div>
 
@@ -42,7 +42,7 @@
                             <div class="row form-group">
                                 <div class="col">
                                     <label for="">Masajes:</label>
-                                    <select class="form-control js-basic-multiple" th:object="${form}" th:field="*{turno.tipoMasajes}" multiple="multiple">
+                                    <select class="form-control js-basic-multiple" th:object="${form}" th:field="*{turno.tipoMasajes}" multiple="multiple" required>
                                     <option th:each="Item: *{tipoMasaje}"
                                           th:value="${Item.id}"
                                           th:utext="${Item.tipoMasaje} + ' (' + ${Item.tiempo} + 'min) '">

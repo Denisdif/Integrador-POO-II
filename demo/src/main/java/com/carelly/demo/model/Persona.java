@@ -33,10 +33,10 @@ public class Persona {
     @Column(length = 20, nullable = false)
     private String sexo;
 
-    @Column(length = 12, nullable = false)
+    @Column(length = 12, nullable = false, unique = true)
     private String telefono;
 
-    @Column(length = 50, nullable = true)
+    @Column(length = 50, nullable = true , unique = true)
     private String email;
 
     @Column(nullable = true)

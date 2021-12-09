@@ -29,11 +29,11 @@
                             <div class="row form-group">
                                 <div class="col">
                                     <label for="">Nombre:</label>
-                                    <input type="text" class="form-control" placeholder="Nombres" th:field="*{persona.nombre}">
+                                    <input type="text" maxlength="50" class="form-control" placeholder="Nombres" th:field="*{persona.nombre}" required>
                                 </div>
                                 <div class="col">
                                     <label for="">Apellido:</label>
-                                    <input type="text" class="form-control" placeholder="Apellidos" th:field="*{persona.apellido}">
+                                    <input type="text" maxlength="50" class="form-control" placeholder="Apellidos" th:field="*{persona.apellido}" required>
                                 </div>
                             </div>
 
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="col">
                                     <label for="">Código:</label>
-                                    <input type="text" class="form-control" placeholder="Código de identificación" th:field="*{persona.identificacion}">
+                                    <input type="text" maxlength="20" class="form-control" placeholder="Código de identificación" th:field="*{persona.identificacion}" required>
                                 </div>
                             </div>
 
@@ -57,11 +57,11 @@
                             <div class="row form-group">
                                 <div class="col">
                                     <label for="">Email:</label>
-                                    <input type="text" class="form-control" placeholder="Email" th:field="*{persona.email}">
+                                    <input type="text" maxlength="50" class="form-control" placeholder="Email" th:field="*{persona.email}">
                                 </div>
                                 <div class="col">
                                     <label for="">Teléfono:</label>
-                                    <input type="text" class="form-control" placeholder="Teléfono" th:field="*{persona.telefono}">
+                                    <input type="number" class="form-control" minlength="8" maxlength="12" placeholder="Teléfono" th:field="*{persona.telefono}" required>
                                 </div>
                             </div>
 
@@ -69,7 +69,7 @@
                             <div class="row form-group">
                                 <div class="col">
                                     <label for="">Sexo:</label>
-                                    <select class="form-control" th:field="*{persona.sexo}">
+                                    <select class="form-control" th:field="*{persona.sexo}" required>
                                   <option value="">          -- Seleccione --    </option>
                                   <option value="Femenino">           Femenino            </option>
                                   <option value="Masculino">          Masculino           </option>

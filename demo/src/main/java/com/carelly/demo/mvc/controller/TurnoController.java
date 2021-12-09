@@ -2,6 +2,7 @@ package com.carelly.demo.mvc.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -94,15 +95,22 @@ public class TurnoController {
         //Se genera un objeto form para almacenar datos
         TurnoForm form = new TurnoForm();
 
-        //Se genera una lista con todos los turnos
-        params.put("list", turno.getAll());
-
         //Se asigna al objeto form los datos para la carga 
         form.setTurno(new TurnoDto());
         form.setTipoMasaje(tipoMasaje.getAllHabilitados());
 
         //Se añade a params el form generado anteriormente
         params.put("form", form);
+        params.put("list", turno.getAll());
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date()); // Configuramos la fecha que se recibe
+        calendar.add(Calendar.DAY_OF_YEAR, 1);  // numero de horas a añadir, o restar en caso de horas<0
+        
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+        String dateAux=formato.format(calendar.getTime());
+        
+        params.put("actual", dateAux);
 
         //Se retorna la vista del formulario con el params
         return new ModelAndView("turnoCreate", params);
@@ -119,6 +127,15 @@ public class TurnoController {
         //Se asigna al objeto form los datos para la carga 
         form.setTurno(turno.get(id));
         form.setTipoMasaje(tipoMasaje.getAll());
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date()); // Configuramos la fecha que se recibe
+        calendar.add(Calendar.DAY_OF_YEAR, 1);  // numero de horas a añadir, o restar en caso de horas<0
+        
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
+        String dateAux=formato.format(calendar.getTime());
+
+        params.put("actual", dateAux);
 
         //Se añade a params el form generado anteriormente
         params.put("form", form);
